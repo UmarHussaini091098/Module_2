@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Challenge: Avatar attributes</title>
+    </head>
+    <body>
+    
+    <h1>Which avatar is which?</h1>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>Attributes</th>
+                <th>Avatar</th>
+            </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>
+                <ul>
+                    <li>pink</li>
+                    <li>innocent</li>
+                </ul>
+            </td>
+            <td>
+                <img src="https://www.kasandbox.org/programming-images/avatars/marcimus.png" id="avatar-1" class="tooltip" title="Tooltip for Image 1" height="150" alt="Marcimus, A pink, innocent avatar">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <ul>
+                    <li>green</li>
+                    <li>ANGRY</li>
+                </ul>
+            </td>
+            <td>
+                <img src="https://www.kasandbox.org/programming-images/avatars/old-spice-man.png" id="avatar-2" class="tooltip" title="Tooltip for Image 2" height="150" alt="Old Spice Mann, A green, angry avatar">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <ul>
+                    <li>orange</li>
+                    <li>multi-legged</li>
+                </ul>
+            </td>
+            <td>
+                <img src="https://www.kasandbox.org/programming-images/avatars/orange-juice-squid.png" id="avatar-3" class="tooltip" title="Tooltip for Image 3" height="150" alt="Orange Juice Squid, An orange, multi-legged avatar">
+            </td>
+        </tr>
+        </tbody>
+    </table>                  
+    
+        <script>
+            var tooltips = document.querySelectorAll(".tooltip");
+            tooltips.forEach(function(tooltip)) {
+                var imageId = tooltip.id;
+                var tooltipText = tooltip.getAttribute('title');
+            }
+            var avatarIds = ['avatar-1', 'avatar-2', 'avatar-3'];
+            
+            for (var i = 0; i < avatarIds.length; i++) {
+                var currentAvatar = document.getElementById(avatarIds[i]);
+                currentAvatar.setAttribute('height', '700');
+            }
+        </script>
+    </body>
+</html>
