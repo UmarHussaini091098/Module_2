@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <meta charset="utf-8">
+      <title>Myblog</title>
+      <style>
+        * {
+          box-sizing: border-box;
+        }
+
+        body {
+          font-family: Arial, Helvetica, sans-serif;
+          margin: 0;
+          font-size: 20px;
+        }
+
+        header {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 300px;
+          background-image: url(https://roam.qodeinteractive.com/wp-content/uploads/2017/08/error-page-background-img.jpg);
+          background-size: cover;
+          background-position: center;
+          z-index: -2;
+        }
+
+        .welcome {
+          color: white;
+          text-align: center;
+          font-size: 250%;
+        }
+        .welcome h1 {
+          margin: 0px;
+        }
+        .welcome p {
+          margin: 5px;
+        }
+
+        nav {
+          background-color: #585c5c;
+          padding: 1em 0;
+        }
+
+        nav ul {
+          margin: 0;
+          padding-left: 0;
+          display: flex;
+          list-style: none;
+          justify-content: center;
+        }
+
+        nav a {
+          color: white;
+          text-decoration: none;
+          padding: 1em 1.25em;
+        }
+
+        nav a:hover {
+          background-color: #b7bdbd;
+        }
+
+        nav li {
+          display: inline-block; 
+          display: inline-flex; 
+        }
+
+        #main-container {
+          display: flex;
+        }
+
+        aside,
+        main {
+          padding: 1.25em;
+        }
+
+        aside {
+          flex-grow: 1;
+          flex-shrink: 1;
+          flex-basis: 300px;
+          vertical-align: top;
+          background-color: #f2f3f3;
+        }
+
+        main {
+          flex-grow: 3;
+          flex-shrink: 3;
+          flex-basis: 700px;
+        }
+
+        article {
+          margin-bottom: 2.5em;
+        }
+
+        .image-container {
+          width: 100%;
+          height: 12.5em;
+          overflow: hidden;
+        }
+
+        .image-container-sm {
+          width: 100%;
+          height: 100%;
+          overflow: hidden;
+        }
+
+        img {
+          width: 100%;
+          height: auto;
+          display: block;
+        }
+
+        .article-image {
+          background-image: url("https://picsum.photos/700/350");
+          height: 12.5em;
+          background-repeat: no-repeat;
+          background-position: center;
+          background-size: cover;
+        }
+
+        footer {
+          padding: 2.5em;
+          background-color: rgb(55, 60, 65);
+          color: #fff;
+          text-align: center;
+        }
+
+        .show-menu {
+          display: none;
+        }
+        @media screen and (max-width: 700px), print and (orientation: portrait) {
+          #main-container {
+            display: block;
+          }
+          aside,
+          main {
+            width: 100%;
+          }
+          nav li {
+            display: block;
+            text-align: center;
+            margin: 1.25em 0;
+          }
+        }
+
+        @media screen and (max-width: 480px) {
+          .menu-item {
+            display: none;
+          }
+          .show-menu {
+            display: block;
+          }
+          nav a {
+            padding: 0;
+          }
+          nav li {
+            margin: 0;
+          }
+        }
+
+
+      </style>
+  </head>
+  <body>
+    <header>
+      <div class="welcome">
+        <h1>Umrexdesign</h1>
+        <p>Welcome to my blog.</p>
+      </div>
+    </header>
+    <nav>
+      <ul>
+        <li><a href="#" class="menu-item">Home</a></li>
+        <li><a href="#" class="menu-item">About Me</a></li>
+        <li><a href="#" class="menu-item">My Portfolio</a></li>
+        <li><a href="#" class="menu-item">Contact</a></li>
+        <li><a href="#" class="show-menu">Show Menu v</a></li>
+      </ul>
+    </nav>
+    <div id="main-container">
+      <aside>
+        <section>
+          <h2>About Me</h2>
+          <h5>Photo of me:</h5>
+          <div class="image-container">
+            <img src="umrex.jpeg.png" alt="" />
+          </div>
+          <p>A graphics designer with sauce..</p>
+        </section>
+        <section>
+          <h3>Talk less act smart.</h3>
+          <p>Beauty of graphics depends on designer's passion.</p>
+          <div class="image-container-sm">
+            <img src="https://www.shutterstock.com/image-photo/workplace-winter-background-keayboard-notebook-260nw-713073412.jpg" alt="" />
+          </div>
+        </section>
+      </aside>
+      <main>
+        <article>
+          <h2>AIM WOW!</h2>
+          <h5>Millton Glaser, Dec 5, 2023</h5>
+          <div class="image-container">
+            <img src="https://images.squarespace-cdn.com/content/v1/551ef0b9e4b0170ec8abd4cc/1685130324127-5STX5BJ512M0ONN1B6KG/Peerless+Communications+Blog+page+cover.png?format=1500w" alt="" />
+          </div>
+          <p> <a href="https://3dworld.com.ua/en/yes-no-and-wow-of-the-legendary-milton-glaser/">Read more..</a></p>
+          <p>
+            “There are three responses to a piece of design – yes, no, and WOW! Wow is the one to aim for.” - Milton Glaser.<br>
+            <br>
+            The designer of the famous I ❤ NY logo, Millton Glaser is a man who knows what he’s talking about when it comes to graphic design. 
+            This quote highlights what every designer should aim for when working on a design – something that makes people go WOW.
+            Glaser believes that a simple yes is not good enough, as it doesn’t evoke the kind of emotion that great design should.
+          </p>
+        </article>
+        <article>
+          <h2>OUTSTANDING CREATIVITY</h2>
+          <h5>Frank Chimero, Dec 7, 2017</h5>
+          <div class="image-container">
+            <img src="https://img.freepik.com/free-photo/flat-lay-workstation-with-copy-space-laptop_23-2148430879.jpg?size=626&ext=jpg&ga=GA1.1.1880011253.1701734400&semt=ais" alt="" />
+          </div>
+          <p><a href="https://flauntmydesign.com/inspirational-quotes-for-design-clients/">Read more..</a></p>
+          <p>
+            “Good design is all about making other designers feel like idiots because that idea wasn’t theirs.” - Frank Chimero.<br>
+            <br>
+            When design is so good that other designers feel foolish for not thinking of it, you know you’re onto a winner. 
+            That’s according to New York-based graphic designer Frank Chimero, whose projects have been featured in The New York Times, Time Magazine, Slate and The New Yorker.
+            This quote from Chimero encourages designers to try to make others wish they had created the design you’ve made, simultaneously inspiring them to better themselves creatively.
+          </p>
+          <div class="article-image"></div>
+        </article>
+      </main>
+      </div>
+      <footer>2023 &copy; MyWebsite.com - All rights reserved.</footer>
+    </body>
+</html>
