@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Invite</title>
+    <style>
+        .header {
+            position: fixed;
+            width: 100%;
+            background: #000;
+            transition: 0.7s all;
+            z-index: 100;
+        }
+        li {
+            list-style: none;
+        }
+
+        nav {
+            overflow: hidden;
+        }
+
+        nav ul {
+            float: right;
+            margin-right: 50px;
+        }
+
+        nav li {
+            display: inline;
+            float: left;
+        }
+
+        nav a {
+            display: inline-block;
+            color: #fff;
+            text-decoration: none;
+            padding: 25px;
+            transition: 0.3s all;
+        }
+
+        nav a:hover {
+            background: blue;
+        }
+
+        .logo {
+            float: left;
+            color: #fff;
+            font-size: 50px;
+            line-height: 50px;
+            transition: 0.7s all;
+            padding-top: 15px;
+            padding-left: 20px;
+        }
+        .about-section{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+	        padding:120px 0px;
+            background-image: url(https://wallpaperaccess.com/full/6361599.jpg);
+            background-repeat: no-repeat;
+        }
+        .container{
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr 1fr;
+            gap: 150px;
+            padding-top: 10px;
+            height: 60vh;
+        }
+        h2{
+            font-size: 120px;
+            margin: 0px;
+            color: white;
+        }
+        .details-text {
+            margin-top: 70px;
+            color: white;
+        }
+        h3 {
+            font-size: 30px;
+            color: white;
+        }
+        .text {
+            color: white;
+        }
+        .footer {
+            padding: 50px;
+            text-align: center;
+            align-items: center;
+            background-color: #000;
+            color: white;
+        }
+            
+    </style>
+</head>
+<body>
+    <header class="header" id="home">
+        <div class="inner">
+          <div class="logo">logo</div>
+          <nav role='navigation'>
+            <ul>
+              <li><a href="#home">Home</a></li>
+              <li><a href="#date">Date</a></li>
+              <li><a href="#">Contact Us</a></li>
+            </ul>
+          </nav>  
+        </div>
+    </header>
+    <div class="about-section">
+        <div class="container">
+            	
+            <!--Content Column-->
+            <div class="content-column col-md-6 col-sm-12 col-xs-12">
+                <div class="inner-column" >
+                    <div class="sec-title">
+                    	<div class="title"><h1>ABOUT</h1></div>
+                        <h2>Party <br> Invite</h2>
+                    </div>
+                    <div class="text">26th DECEMBER 2023 </div>
+                </div>
+            </div>
+                
+            <!--details Column-->
+            <div class="details-column col-md-6 col-sm-12 col-xs-12">
+                <div class="inner-column " data-wow-delay="0ms" data-wow-duration="1500ms">
+                    <div class="sec-title">
+                        <div class="title"><h1>BE WITH US</h1></div>
+                    </div>
+                    <div class="details-text">  
+                        <h3>Are you coming?</h3>
+                        <p><input type="checkbox">Yes Ofcourse!</p>
+                        <p><input type="checkbox">No, I'm Sorry.</p>
+                    </div>
+                    <div class="details-text">  
+                        <h3>Are you coming with someone?</h3>
+                        <p><input type="checkbox">Yes!<br> Oh cool! who else is coming with you?...<br><input type="text"> </p>
+                        <p><input type="checkbox">No, I'm alone.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <h4> CONTACT US </h4>
+        <p>+2349018399834</p>
+    </div>
+</body>
+</html>
