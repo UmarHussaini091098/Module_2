@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>My CapStone Project</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Challenge: Stopwatch</title>
+        <style>
+            body{
+                background-image:linear-gradient( rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(background-spot.png);
+            }
+            .header {
+                position: fixed;
+                width: 100%;
+                background-color: darkslategray;
+                transition: 0.7s all;
+                z-index: 100;
+            }
+            li {
+                list-style: none;
+            }
+            nav {
+                overflow: hidden;
+            }
+            nav ul {
+                float: right;
+                margin-right: 200px;
+            }
+            nav li {
+                display: inline;
+                float: left;
+            }
+            nav a {
+                display: inline-block;
+                color: #fff;
+                text-decoration: none;
+                padding: 25px;
+                transition: 0.3s all;
+            }
+            nav a:hover {
+                background: #D7E102;
+                border-radius: 20px;
+            }
+            nav img {
+                color: #fff;
+                width: 50px;
+                height: 50px;
+                border-radius: 30px;
+                margin-left: 170px;
+                margin-top: 10px;
+            }   
+            .hero{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                width: 100%;
+                height: 100vh;
+                border-bottom-left-radius: 20px;
+                border-bottom-right-radius: 20px;
+                background-image:linear-gradient( rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(https://roam.qodeinteractive.com/wp-content/uploads/2017/08/error-page-background-img.jpg);
+                background-size: cover;
+                background-position: center;
+                z-index: -2;
+            } 
+            .hero h1 {
+                text-align: center;
+                font-size: 150px;
+                letter-spacing: 20px;
+                margin: 0px;
+                color: white;
+            }
+            .hero p {
+                text-align: center;
+                color: white;
+                font-size: 30px;
+                letter-spacing: 20px;
+            }
+            #hero-section {
+                text-align: center;
+                padding: 100px;
+            }
+            #changing-text {
+                display: inline-block;
+                border-right: 2px solid #333;
+                padding-right: 8px; /* Adjust the padding based on your preference */
+                white-space: nowrap;
+                overflow: hidden;
+                font-size: 20px;
+                letter-spacing: normal;
+                color: white;
+                margin-top: 0px;
+            }
+            .about-container{
+                display: grid;
+                margin-top: 20px;
+                grid-template-columns: 1fr 1fr;
+                grid-template-rows: 1fr 1fr;
+                gap: 250px;
+            }
+            .space-about {
+                height: 30px;
+                margin-top: 20px;
+                margin-bottom: 40px;
+            }
+            .about-section{
+                display: flex;
+                height: 80vh;
+                margin-bottom: 0px;
+            }
+            .content-column {
+                position: relative;
+                margin-left: 230px;
+            }
+            .about-section .image-column{
+                position:relative;
+                margin-bottom:50px;
+                border-radius: 20px;
+            }
+            .about-section .image-column .inner-column img{
+                position:relative;
+                width: 300px;
+                height: 500px;
+                margin-bottom:50px;
+                border-radius: 20px;
+                object-fit: cover;
+            }
+            .about-section .image-column .inner-column img:hover{
+                transform: scale(1.1);
+            }
+            .about-section .image-column .inner-column{
+                position:relative;
+                padding:40px 40px 0px 0px;
+                margin-left:50px;
+                
+            }
+
+            .about-section .image-column .inner-column:after{
+                position:absolute;
+                content:'';
+                width: 300px;
+                height: 500px;
+                right:0px;
+                top:0px;
+                left:40px;
+                bottom:100px;
+                z-index:-1;
+                border:2px solid #D7E102;
+                border-radius: 20px;
+            }
+            .sec-title h2 {
+                color: #D7E102;
+                font-size: 25px;
+                margin-bottom: 20px;
+                margin-top: 20px;
+            }
+            .title h2 {
+                color: #D7E102;
+                font-style: bold;
+                font-size: 25px;
+            }
+            .sec-title p {
+                margin-bottom: 20px;
+                color: black;
+                text-align: justify;
+            }
+            .sec-title h5 {
+                color: black;
+                letter-spacing: 10px;
+            }
+            .sec-title p span {
+                font-style: bold;
+                color: #D7E102;
+            }
+            .skills-list li {
+                display: inline-block;
+                margin-left: 60px;
+                margin-top: 30px;
+                background-color: white;
+                border-radius: 5px;
+                padding: 5px;
+            }
+            .skills-list li:first-child {
+               margin-left: 0px;
+            }
+            .projects h1 {
+                color: #D7E102;
+                align-items: center;
+                text-align: center;
+                font-size: 25px;
+                margin-bottom: 30px;
+            }
+            .projects {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                margin-top: 0px;
+                padding: 20px;
+                height: 100vh;
+            }
+            .space-projects {
+                height: 30px;
+                margin-bottom: 20px;
+            }
+            .gallery {
+                display: grid;
+                width: 75%;
+                grid-template-columns: 1fr 1fr;
+                grid-template-rows: 1fr 1fr;
+                gap: 20px;
+            }
+            .gallery-item{
+                height: 300px;
+            }
+            .gallery-item img {
+                height: 300px;
+                width: 100%;
+                object-fit: cover;
+                border-radius: 20px;
+            }
+            .gallery-item img:hover {
+                opacity: 0.5;
+                color: black;
+            }
+            /* start contact */
+            * {
+                margin:0;
+                padding:0;
+                box-sizing:border-box;
+                -webkit-box-sizing:border-box;
+                -moz-box-sizing:border-box;
+                -webkit-font-smoothing:antialiased;
+                -moz-font-smoothing:antialiased;
+                -o-font-smoothing:antialiased;
+                text-rendering:optimizeLegibility;
+            }
+            .footer-container {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                width: 100%;
+                height: 80vh;
+                border-top-left-radius: 20px;
+                border-top-right-radius: 20px;
+                margin:0 auto;
+                position:relative;
+                background-color: darkslategrey;
+            }
+            #contact input[type="text"], 
+            #contact input[type="email"], 
+            #contact input[type="tel"], 
+            #contact input[type="url"], 
+            #contact textarea, 
+            #contact button[type="submit"] { font:400 12px/16px "Open Sans", Helvetica, Arial, sans-serif; }
+            
+            #contact {
+                position: relative;
+                width: 40%;
+            }
+            #contact h1 {
+                text-align: center;
+                color: #D7E102;
+                margin: 10px;
+                font-size: 20px;
+            }
+            fieldset {
+                border: medium none !important;
+                margin: 0 0 10px;
+                min-width: 100%;
+                padding: 0;
+                width: 100%;
+            }
+
+            #contact input[type="text"], 
+            #contact input[type="email"], 
+            #contact input[type="tel"], 
+            #contact input[type="url"], 
+            #contact textarea {
+                width:100%;
+                border:1px solid #CCC;
+                margin:0 0 5px;
+                padding:10px;
+            }
+
+            #contact input[type="text"]:hover,
+            #contact input[type="email"]:hover,
+            #contact input[type="tel"]:hover, 
+            #contact input[type="url"]:hover, 
+            #contact textarea:hover {
+                -webkit-transition:border-color 0.3s ease-in-out;
+                -moz-transition:border-color 0.3s ease-in-out;
+                transition:border-color 0.3s ease-in-out;
+                border:1px solid #AAA;
+            }
+
+            #contact textarea {
+                height:100px;
+                max-width:100%;
+                resize:none;
+            }
+
+            #contact button[type="submit"] {
+                cursor:pointer;
+                width:100%;
+                border:none;
+                background:#D7E102;
+                color:#FFF;
+                margin:0 0 5px;
+                padding:10px;
+                font-size:15px;
+            }
+
+            #contact button[type="submit"]:active { box-shadow:inset 0 1px 3px rgba(0, 0, 0, 0.5); }
+
+            #contact input:focus, #contact textarea:focus {
+                outline:0;
+                border:1px solid #999;
+            }
+            ::-webkit-input-placeholder {
+            color:#888;
+            }
+            :-moz-placeholder {
+            color:#888;
+            }
+            ::-moz-placeholder {
+            color:#888;
+            }
+            :-ms-input-placeholder {
+            color:#888;
+            }
+            .social-icons li {
+                display: inline-block;
+                margin: 10px;
+                background-color: white;
+                border-radius: 5px;
+                padding: 5px;
+            }
+            .icons-div {
+                display: flex;
+                text-align: center;
+                color: white;
+            }
+            .icons-div p {
+                margin-top: 10px;
+            }
+        </style>
+    </head>
+    <body>
+        <header class="header" id="home">
+            <div class="inner">
+              
+              <nav role='navigation'>
+                <img src="umrex.jpeg.png">
+                <ul>
+                  <li><a href="#start">Home</a></li>
+                  <li><a href="#about">About</a></li>
+                  <li><a href="#projects">Projects</a></li>
+                  <li><a href="#contact">Contact Us</a></li>
+                </ul>
+              </nav>  
+            </div>
+        </header>
+        <div class="hero" id="start">
+            <h1> Welcome</h1>
+            <p>To My CapStone Project</p>
+            <div id="hero-section">
+                <h1 id="changing-text"></h1>
+            </div>
+        </div>
+        <div class="space-about" id="about"></div>
+        <div class="about-section">
+            <div class="about-container">
+                    
+                <!--Content Column-->
+                <div class="content-column col-md-6 col-sm-12 col-xs-12">
+                    <div class="inner-column">
+                        <div class="sec-title">
+                            <h2>ABOUT ME</h2>
+                            <p> Hi! My name is Umar Hussaini, I am a student of eHA Academic, 
+                                Learning Software Development,<span> Front End Development</span> to be precise.
+                                I love creating webstreamed content, Since becoming part of the 
+                                academic community, I have experienced tremendous personal and 
+                                professional growth, gaining not only confidence but also a wealth 
+                                of valuable skills, including... <br> <br>
+                                >> HTML <br> >> CSS <br> >> JavaScript <br> >> Figma <br> <br>
+                                These skills, cultivated through engaging academic pursuits, have 
+                                enriched my knowledge and capabilities, contributing significantly 
+                                to my overall development. 
+                                <h5>THANK YOU eHA</h5>
+                            </p>
+                        </div>
+                        <div class="title"><h2>My skills</h2></div>
+                         <div class="skills-list">
+                            <ul>
+                                <li><img src="html.png" width="40px"></li>
+                                <li><img src="css-file.png" width="40px"></li>
+                                <li><img src="js.png" width="40px"></li>
+                                <li><img src="figma.png" width="40px"></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                    
+                <!--details Column-->
+                <div class="image-column col-md-6 col-sm-12 col-xs-12">
+                	<div class="inner-column " data-wow-delay="0ms" data-wow-duration="1500ms">
+                    	<div class="image">
+                        	<img src="Umrex pic.jpg" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Projects -->
+        <div class="space-projects" id="projects"></div> 
+            <div class="projects">
+                <h1>MY PROJECTS</h1>
+                <div class="gallery">
+                    <div class="gallery-item">
+                        <!-- <a href="Recipe book.html"><p>Recipe Book</p></a> -->
+                        <a href="Recipe book.html"><img class="gallery-image" src="RecipeBook.jpg" alt="RecipeBook"></a>
+                    </div>
+                
+                    <div class="gallery-item">
+                        <!-- <a href="Myblog.html"><p>My Blog</p></a> -->
+                        <a href="Myblog.html"><img class="gallery-image" src="Myblog.jpg" alt="Myblog"></a>
+                    </div>
+                        
+                    <div class="gallery-item">
+                        <!-- <a href="MyEventIV.html"><p>Event Invite</p></a> -->
+                        <a href="MyEventIV.html"><img class="gallery-image" src="EventIV.jpg" alt="EventIV"></a>
+                    </div>
+                
+                    <div class="gallery-item">
+                        <!-- <p>Travel Web</p> -->
+                        <a href="TravelWebsite.html"><img class="gallery-image" src="TravelWeb.png" alt="TravelWeb"></a>
+                    </div>
+                </div>
+            </div>
+        <!-- footer -->
+        <div class="footer-container">  
+            <form id="contact" action="" method="post">
+                <h1>CONTACT US</h1>
+                <fieldset>
+                    <input placeholder="Your name" type="text" tabindex="1" required autofocus>
+                </fieldset>
+                <fieldset>
+                    <input placeholder="Your Email Address" type="email" tabindex="2" required>
+                </fieldset>
+                <fieldset>
+                    <input placeholder="Your Phone Number" type="tel" tabindex="3" required>
+                </fieldset>
+                <fieldset>
+                    <input placeholder="Your Web Site starts with http://" type="url" tabindex="4" required>
+                </fieldset>
+                <fieldset>
+                    <textarea placeholder="Type your Message Here...." tabindex="5" required></textarea>
+                </fieldset>
+                <fieldset>
+                    <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Submit</button>
+                </fieldset>
+            </form>
+            <div class="icons-div"> 
+                <p>Copyright @Umrexdesign <br>  Phone: +2347061590590</p>
+            <ul class="social-icons">
+                <li><a href="https://facebook.com" target="_blank"><img src="facebook.png" width="30px"></a></li>
+                <li><a href="https://twitter.com" target="_blank"><img src="cancel.png" width="30px"></a></li>
+                <li><a href="https://instagram.com" target="_blank"><img src="instagram.png" width="30px"></a></li>
+                <li><a href="https://gmail.com" target="_blank"><img src="mail.png" width="30px"></a></li>
+                <!-- Add more social media icons as needed -->
+            </ul>
+            </div>
+        </div>
+        <script>
+            // Function to simulate typing effect
+            function typeText(element, text, speed) {
+                let index = 0;
+                const intervalId = setInterval(function () {
+                    element.textContent += text.charAt(index);
+                    index++;
+                    if (index === text.length) {
+                        clearInterval(intervalId);
+                    }
+                }, speed);
+            }
+
+            // Function to change text automatically
+            function autoChangeText() {
+                const heroTextElement = document.getElementById('changing-text');
+                const texts = ['Explore Amazing Features', 'Connect with Us', 'Follow us on our social media'];
+
+                let currentIndex = 0;
+
+                function changeText() {
+                    heroTextElement.textContent = '';
+                    typeText(heroTextElement, texts[currentIndex], 100); // Adjust typing speed (milliseconds) as needed
+                    currentIndex = (currentIndex + 1) % texts.length;
+                }
+
+                // Change text immediately and then every 3 seconds (3000 milliseconds)
+                changeText();
+                setInterval(changeText, 5000); // Change text every 5 seconds (adjust as needed)
+            }
+
+            // Call the function when the page loads
+            window.onload = autoChangeText;
+        </script>
+    </body>
+</html>
