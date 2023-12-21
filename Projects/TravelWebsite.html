@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <title>TravelWebsite</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body{
+            background-color: skyblue;
+        }
+        img{
+            height: 50px;
+            width: 50px;
+            border-radius: 90%;
+            margin-left: 30px;
+        }
+        .header{
+            display: grid;
+            align-items: center; 
+            font-family:Lucida handwriting;
+            font-style: italic;
+            font-weight: bolder;
+            font-size: 10px;
+            grid-template-columns: 1fr 8fr 20fr;
+            column-gap: 5px;
+        }
+        .navbar{
+            height: 90px;
+            width: 100%;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content:space-around;
+            box-shadow: 0px 5px 10px #dfdfdf;
+        }
+        .linkcont{
+            width: 500px;
+            height: 60px;
+            font-style: arial;
+            display: flex;
+            justify-content:space-between;
+            align-items:center;
+            margin-right: 80px;
+        }
+        .linkcont a{
+            text-decoration: none;
+            color: blue;
+            font-size: 18px;
+            font-weight: 600;
+        }
+        h4{
+            font-family:Lucida handwriting;
+            font-style: italic;
+            font-weight: bolder;
+            text-align: center;
+        
+        }
+        .pi img{
+            height: 200px;
+            width: 300px;
+            border-radius:10%;
+        }
+        .container {
+            display: grid;
+            grid-template-columns: 20fr 25fr 8fr;
+        }
+        p.text-muted{
+            color: navy blue;
+            font-family:Copperplate, Papyrus, fantasy;
+            grid-template-columns: 20fr 25fr 8fr;
+            
+        }
+        .containers {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+            border-radius: 5px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"]
+        {
+            width: 90%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button[type="submit"] {
+            width: 95%;
+            padding: 10px;
+            background-color:lightskyblue;
+            color: Black;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #B6E6FF;
+            border: 2px solid #333; 
+            padding: 10px 20px; 
+            border-radius: 4px;
+        }
+        .bg {
+            background-image: url("https://img.freepik.com/free-vector/flat-design-travel-background_23-2149193475.jpg?w=2000");
+            background-size: cover;
+            background-position: top;
+        }
+        .error {
+            color: red;
+        }
+        /* Style the select box */
+        #country {
+            width: 95%;
+            padding: 8px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            background-color: white;
+            color: #333;
+            display: block;
+            margin-bottom: 4px;
+        }
+        #country:hover {
+            background-color: white;
+            border: 0.5px solid #333; 
+            padding: 10px 20px; 
+            border-radius: 4px;
+        }
+
+    </style>
+    </head>
+<body>
+    <div class="navbar">
+        <div class="header">
+            <div class="image">
+                <img src="https://static.vecteezy.com/system/resources/previews/004/997/030/original/world-traveling-with-flying-airplane-free-vector.jpg" class="img-circle" alt=" " width="304" height="236">
+            </div>
+        <div class="text">
+        <h1><b>See the World<b></h1> 
+        </div>
+        </div>
+        <div class="linkcont">
+            <a href = "#home">Home</a>
+            <a href = "#company" class = "active">Company</a>
+            <a href = "#product">Product</a>
+            <a href = "#services">Services</a>
+            <a href = "#contact">Contact</a>
+        </div>
+    </div>
+    <div>
+        <div class="bg">
+                <h4>Uncover Hidden Gems, See the World !</h4>
+                <div class="container">
+                    <div class="pi">
+                        <img src="https://wallpapers.com/images/featured/best-travel-background-04ml2h9wywaoo6ei.jpg" alt=" " class="image">
+                    </div>
+                    <div class="pitext">
+                    <p class="text-muted">Do you have an insatiable desire to travel and unlock the thrilling moments that life has to offer?<br> Look no further because you've arrived at the perfect destination!<br>Our platform is designed to cater to your wanderlust, providing you with all the resources and support you need to make your travel experiences truly extraordinary. It's time to break free from the ordinary and let your adventurous spirit soar. Join us at 'See the World' and let the excitement begin!
+                    </p>
+                    </div>
+                </div>
+            <div class="containers">
+                <h2>Sign up for Exciting Travel Updates</h2>
+            <form id="myForm" onsubmit="return validateForm()">
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" placeholder="Enter your name" required>
+                    <span id="nameError" class="error"></span>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                    <span id="emailError" class="error"></span>
+                </div>
+                <div>
+                    <br>
+                    <label for="country">Country:</label>
+                    <select id="country" required>
+                        <option value="" >Select </option>
+                        <option value="in">India</option>
+                        <option value="us">United States</option>
+                        <option value="ca">Canada</option>
+                        <option value="uk">United Kingdom</option>
+                    </select>
+                    <span id="countryError" class="error"></span>
+                </div>
+                <br>
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                    <span id="passwordError" class="error">
+                </div>
+            
+                <button type="submit">Submit</button>
+            </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
